@@ -1,8 +1,9 @@
 -- Median of two sorted lists
+-- https://leetcode.com/problems/median-of-two-sorted-arrays/
 
 med [] = 0
 med ls
-  | length ls `mod` 2 == 0    = fromIntegral ((ls !! mid) + (ls !! mid - 1)) / 2
+  | length ls `mod` 2 == 0    = fromIntegral ((ls !! mid) + (ls !! (mid - 1))) / 2
   | otherwise                 = fromIntegral $ ls !! mid
   where
       mid = (length ls) `div` 2
@@ -18,4 +19,4 @@ merge (x:xs) (y:ys)
 
 median l1 l2 = med $ merge l1 l2
 
-main = putStrLn $ show $ median [0, 0] [0, 0]
+main = putStrLn $ show $ median [1, 2] [2, 4]
